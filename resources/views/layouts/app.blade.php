@@ -20,9 +20,9 @@
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
                     <a href="{{ route('catalog.index') }}" class="flex-shrink-0 flex items-center gap-2">
-                        <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
-                            T
-                        </div>
+                    <div class="w-10 h-10 bg-gradient-to-tr from-violet-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-indigo-200 rotate-3 hover:rotate-0 transition-transform duration-300">
+                        T
+                    </div>
                         <span class="font-bold text-xl text-gray-900 hidden sm:block">
                             {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}
                         </span>
@@ -30,16 +30,13 @@
                 </div>
                 
                 <div class="hidden sm:flex sm:items-center sm:gap-8">
-                    <a href="{{ route('catalog.index') }}" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Katalog</a>
-                    <a href="{{ route('pages.contact') }}" class="text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors">Kontak</a>
-                    
-                    <a href="{{ route('cart.index') }}" class="relative p-2 text-gray-600 hover:text-primary-600 transition-colors group">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:scale-110 transition-transform">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                        </svg>
-                        <!-- Cart Badge -->
-                        <span x-show="$store.cart.totalItems > 0" x-text="$store.cart.totalItems" x-cloak class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-primary-600 rounded-full shadow-sm">
-                        </span>
+                     <a href="{{ route('catalog.index') }}" class="relative text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors py-2 group">
+                         Katalog
+                      <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+                         </a>
+                         <a href="{{ route('pages.contact') }}" class="relative text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors py-2 group">
+                         Kontak
+                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </div>
                 
@@ -79,19 +76,31 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 mt-16 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="bg-white border-t border-gray-100 mt-24 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-gray-50 pb-8">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-primary-600 rounded flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                <div class="w-9 h-9 bg-gradient-to-tr from-violet-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-base shadow-md">
                     T
                 </div>
-                <span class="font-semibold text-gray-900">{{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}</span>
+                <span class="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-gray-950 to-gray-700">
+                    {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}
+                </span>
             </div>
-            <div class="text-sm text-gray-500 text-center md:text-left">
-                &copy; {{ date('Y') }} {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}. All rights reserved.
+            
+            <div class="flex gap-6 text-sm text-gray-500">
+                <a href="{{ route('catalog.index') }}" class="hover:text-indigo-600 transition-colors">Belanja</a>
+                <a href="#" class="hover:text-indigo-600 transition-colors">Syarat & Ketentuan</a>
+                <a href="{{ route('pages.contact') }}" class="hover:text-indigo-600 transition-colors">Bantuan</a>
             </div>
         </div>
-    </footer>
+        
+        <div class="flex flex-col sm:flex-row justify-between items-center pt-8 text-xs text-gray-400 gap-4">
+            <p>&copy; {{ date('Y') }} {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}.</p>
+            <p class="font-medium text-gray-400/80">All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Toast Notification (Alpine.js) -->
     <div x-data="{ show: false, message: '' }" 
