@@ -28,9 +28,17 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            
+            // 1. UBAH WARNA DI SINI
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Indigo, // Mengubah dari Amber ke Indigo agar senada dengan halaman depan
+                'danger' => Color::Rose,
             ])
+            
+            // 2. TAMBAHKAN KUSTOMISASI TAMPILAN DI SINI
+            ->font('Inter') 
+            ->brandName('Toko Bisnis Digital')
+            
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
