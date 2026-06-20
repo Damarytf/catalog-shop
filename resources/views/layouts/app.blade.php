@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? 'Katalog' }} - {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,15 +13,14 @@
 </head>
 <body class="font-sans antialiased bg-gray-50 text-gray-900" x-data="{ mobileMenuOpen: false }">
     
-    <!-- Navbar -->
     <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
-                    <a href="{{ route('catalog.index') }}" class="flex-shrink-0 flex items-center gap-2">
-                    <div class="w-10 h-10 bg-gradient-to-tr from-violet-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-indigo-200 rotate-3 hover:rotate-0 transition-transform duration-300">
-                        T
-                    </div>
+                    <a href="{{ route('catalog.index') }}" class="shrink-0 flex items-center gap-2">
+                        <div class="w-10 h-10 bg-linear-to-tr from-violet-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-indigo-200 rotate-3 hover:rotate-0 transition-transform duration-300">
+                            T
+                        </div>
                         <span class="font-bold text-xl text-gray-900 hidden sm:block">
                             {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}
                         </span>
@@ -33,14 +31,13 @@
                      <a href="{{ route('catalog.index') }}" class="relative text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors py-2 group">
                          Katalog
                       <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
-                         </a>
-                         <a href="{{ route('pages.contact') }}" class="relative text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors py-2 group">
+                     </a>
+                     <a href="{{ route('pages.contact') }}" class="relative text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors py-2 group">
                          Kontak
                          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </div>
                 
-                <!-- Mobile menu button -->
                 <div class="flex items-center sm:hidden gap-4">
                     <a href="{{ route('cart.index') }}" class="relative p-2 text-gray-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -61,7 +58,6 @@
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div x-show="mobileMenuOpen" x-cloak x-collapse class="sm:hidden bg-white border-t border-gray-100">
             <div class="px-4 pt-2 pb-4 space-y-1">
                 <a href="{{ route('catalog.index') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50">Katalog</a>
@@ -70,39 +66,36 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="min-h-screen">
         @yield('content')
     </main>
 
-    <!-- Footer -->
     <footer class="bg-white border-t border-gray-100 mt-24 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-gray-50 pb-8">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-gradient-to-tr from-violet-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-base shadow-md">
-                    T
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-gray-50 pb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 bg-linear-to-tr from-violet-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-bold text-base shadow-md">
+                        T
+                    </div>
+                    <span class="font-bold text-lg bg-clip-text text-transparent bg-linear-to-r from-gray-950 to-gray-700">
+                        {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}
+                    </span>
                 </div>
-                <span class="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-gray-950 to-gray-700">
-                    {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}
-                </span>
+                
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="{{ route('catalog.index') }}" class="hover:text-indigo-600 transition-colors">Belanja</a>
+                    <a href="#" class="hover:text-indigo-600 transition-colors">Syarat & Ketentuan</a>
+                    <a href="{{ route('pages.contact') }}" class="hover:text-indigo-600 transition-colors">Bantuan</a>
+                </div>
             </div>
             
-            <div class="flex gap-6 text-sm text-gray-500">
-                <a href="{{ route('catalog.index') }}" class="hover:text-indigo-600 transition-colors">Belanja</a>
-                <a href="#" class="hover:text-indigo-600 transition-colors">Syarat & Ketentuan</a>
-                <a href="{{ route('pages.contact') }}" class="hover:text-indigo-600 transition-colors">Bantuan</a>
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-8 text-xs text-gray-400 gap-4">
+                <p>&copy; {{ date('Y') }} {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}.</p>
+                <p class="font-medium text-gray-400/80">All rights reserved.</p>
             </div>
         </div>
-        
-        <div class="flex flex-col sm:flex-row justify-between items-center pt-8 text-xs text-gray-400 gap-4">
-            <p>&copy; {{ date('Y') }} {{ \App\Models\Setting::get('store_name', 'Toko Bisnis Digital') }}.</p>
-            <p class="font-medium text-gray-400/80">All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-    <!-- Toast Notification (Alpine.js) -->
     <div x-data="{ show: false, message: '' }" 
          @notify.window="message = $event.detail.message; show = true; setTimeout(() => show = false, 3000)"
          x-show="show" 
