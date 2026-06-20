@@ -9,10 +9,6 @@
     </div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-semibold bg-primary-500/10 text-primary-300 border border-primary-500/20 mb-4 backdrop-blur-md">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-            Katalog Diperbarui Hari Ini
-        </span>
         <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight mb-6 bg-clip-text bg-linear-to-r from-white via-slate-200 to-primary-200">
             Katalog Produk Digital
         </h1>
